@@ -8,7 +8,7 @@ pipeline {
    stages {
       stage('Test') {
          steps {
-            bat 'mvn clean verify ${ENVIRONMENT_CONFIG} ${BROWSER_CONFIG} ${TAGS_CONFIG}'
+            bat 'mvn clean verify ' + ENVIRONMENT_CONFIG + ' ' + BROWSER_CONFIG + ' ' + TAGS_CONFIG
          }
          post {
             always {
