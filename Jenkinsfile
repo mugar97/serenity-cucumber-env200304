@@ -1,10 +1,10 @@
 pipeline {
-    agent any
+   agent any
    environment{
         ENVIRONMENT_CONFIG="-Denvironment=${PEnvironment}"
         CHROME_BROWSER_CONFIG = "-Ddriver=chrome -Dcontext=chrome"
         FIREFOX_BROWSER_CONFIG = "-Ddriver=firefox -Dcontext=firefox"
-        TAGS_CONFIG="-Dcucumber.options=\"--tags ${PTags}\""
+        TAGS_CONFIG="-Dcucumber.filter.tags=\"${PTags}\""
     }
 
     stages {
