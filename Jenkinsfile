@@ -1,9 +1,9 @@
 pipeline {
    agent any
    environment{
-        ENVIRONMENT_CONFIG='-Denvironment=' + params.PEnvironment
-        BROWSER_CONFIG='-Ddriver=' + params.PBrowser + ' -Dcontext=' + params.PBrowser
-        TAGS_CONFIG='-Dcucumber.options="--tags ' + PTags + '"'
+        ENVIRONMENT_CONFIG="-Denvironment=${PEnvironment}"
+        BROWSER_CONFIG="-Ddriver=${PBrowser} -Dcontext=${PBrowser}"
+        TAGS_CONFIG="-Dcucumber.options=\"--tags ${PTags}\""
     }
    stages {
       stage('Test') {
