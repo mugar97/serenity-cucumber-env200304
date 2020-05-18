@@ -16,9 +16,9 @@ pipeline {
         stage ('Runt tests') {
             steps {
                 parallel chrome: {
-                    bat 'mvn failsafe:test ' + ENVIRONMENT_CONFIG + ' ' + CHROME_BROWSER_CONFIG + ' ' + TAGS_CONFIG
+                    bat 'mvn failsafe:integration-test ' + ENVIRONMENT_CONFIG + ' ' + CHROME_BROWSER_CONFIG + ' ' + TAGS_CONFIG
                 }, firefox: {
-                    bat 'mvn failsafe:test ' + ENVIRONMENT_CONFIG + ' ' + FIREFOX_BROWSER_CONFIG + ' ' + TAGS_CONFIG
+                    bat 'mvn failsafe:integration-test ' + ENVIRONMENT_CONFIG + ' ' + FIREFOX_BROWSER_CONFIG + ' ' + TAGS_CONFIG
                 }
             }
         }
