@@ -16,9 +16,9 @@ pipeline {
         stage ('Runt tests') {
             steps {
                 parallel chrome: {
-                    bat 'mvn clean verify ' + ENVIRONMENT_CONFIG + ' ' + CHROME_BROWSER_CONFIG + ' ' + TAGS_CONFIG
+                    bat 'mvn surefire:test ' + ENVIRONMENT_CONFIG + ' ' + CHROME_BROWSER_CONFIG + ' ' + TAGS_CONFIG
                 }, firefox: {
-                    bat 'mvn clean verify ' + ENVIRONMENT_CONFIG + ' ' + FIREFOX_BROWSER_CONFIG + ' ' + TAGS_CONFIG
+                    bat 'mvn surefire:test ' + ENVIRONMENT_CONFIG + ' ' + FIREFOX_BROWSER_CONFIG + ' ' + TAGS_CONFIG
                 }
             }
         }
